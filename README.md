@@ -3,7 +3,8 @@ SISMO - SImulation of Slime MOlds
 
 # WHAT IS IT?
 
-The SISMO (SImulation of Slime MOlds) simulates spreading during foraging by the slime mold of the species Physarum polycephalum.
+The SISMO (SImulation of Slime MOlds) simulates spreading during foraging by the slime mold of the species Physarum polycephalum in NetLogo.
+Version 6.2.2 http://ccl.sesp.northwestern.edu/netlogo/6.2.2/
 
 # HOW IT WORKS
 
@@ -63,4 +64,4 @@ Copyright 2022 Emir Sinanovic & Kristina Wogatai.
 This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License.  To view a copy of this license, visit https://creativecommons.org/licenses/by-nc-sa/3.0/ or send a letter to Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
 
 This model was developed at the university Klagenfurt in a collaboration between Emir Sinanovic and Kristina Wogatai in the course of the connected master theses "Simulation and Mobility Planning
-with Slime Molds" and "SISMO (SImulation of Slime MOlds):  A Slime Mold Based Algorithm and its Application in Traffic Management". 
+with a Slime Mold Based Algorithm" and "SISMO (SImulation of Slime MOlds):  A Slime Mold Based Algorithm and its Application in Traffic Management". 
