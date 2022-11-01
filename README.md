@@ -6,6 +6,9 @@ SISMO - SImulation of Slime MOlds
 The SISMO (SImulation of Slime MOlds) simulates spreading during foraging by the slime mold of the species Physarum polycephalum in NetLogo.
 Version 6.2.2 http://ccl.sesp.northwestern.edu/netlogo/6.2.2/
 
+![alt text](https://github.com/barlum15/SISMO/blob/main/SISMO.jpg?raw=true)
+![alt text](https://github.com/barlum15/SISMO/blob/main/SISMO_with_network.jpg?raw=true)
+
 # HOW IT WORKS
 
 Initially, the food sources are placed randomly. The core of the slime mold, the plasmodium, is placed centrally in the world. The fixed number of pseudopodia then swarm out to search for food. When a food source is found and the nutrients are depleted, new pseudopodia are hooked with some probability. If food sources are still available, the slime mold will continue to search for them. The shortest paths between food sources and plasmodium are represented by thicker yellow tubes. In nature, the distinct veins of the slime mold are used to transport food. The shortest path is determined using the A* algorithm.
