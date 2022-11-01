@@ -1,0 +1,63 @@
+;;;;;;;;;;;;;;;;;;;;;;
+;; Setup Procedures ;;
+;;;;;;;;;;;;;;;;;;;;;;
+
+;; Create slime population
+to make-plasmodia
+  create-plasmodia 1
+  [
+    set size 5
+    set shape "cloud"
+    set color yellow
+  ]
+end
+
+;; Create pseudopodia
+to make-pseudopodia [number]
+  create-pseudopodia number
+  [
+    ;; The same starting position is needed for the pseudopias as for the plasmodium, as it spreads from the center
+    set color yellow
+    set shape "dot"
+    set path-list []
+    set path-list insert-item 0 path-list (list xcor ycor 0)
+    pen-down
+  ]
+end
+
+;; Create food sources on random positions
+to make-foods [ number ]
+  create-foods number [
+    set shape "circle 2"
+    set color orange
+    set size 2
+    ;; Create random coordinate https://ccl.northwestern.edu/netlogo/bind/primitive/random-float.html#:~:text=If%20you%20want%20to%20generate,4%20%2B%20random%2Dfloat%203%20.
+    ;; Generate random number within a user-defined range: minnumber + (random-float (maxnumber - minnumber))
+    let randomxcoord (min-pxcor + 3) + (random-float ((max-pxcor - 3) - (min-pxcor + 3)))
+    let randomycoord (min-pycor + 3) + (random-float ((max-pycor - 3) - (min-pycor + 3)))
+    setxy randomxcoord randomycoord
+    set nutrient-value 50 + (random (150 - 50))
+    set chemical-level 23
+    set intensity 50
+    set label-color red
+  ]
+end
+
+;; Patch procedure
+to generate-field
+  set light-level 0
+  ;; Every patch needs to check in with every light
+  ask foods
+    [ set-field myself ]
+  set pcolor scale-color orange (sqrt light-level) 0.1 ( sqrt ( 20 * max [intensity] of foods ) )
+end
+
+;; Calculates the light on a patch based on a light proportional to the distance from the light squared.
+to set-field [p]  ;; turtle procedure; input p is a patch
+  let rsquared (distance p) ^ 2
+  let amount chemical-level * scale-factor
+  ifelse rsquared = 0
+    [ set amount amount * 1000 ]
+    [ set amount amount / rsquared ]
+  ask p [ set light-level light-level + amount ]
+end
